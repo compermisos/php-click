@@ -10,7 +10,7 @@ class clickThread extends PHP_Fork {
 		$this->proxy = $proxy;
 		$this->refer = $refer;
 		$this->user = $user;
-		$this->lang = array( 'Accept-Language: en-us,en;q=0.5',
+		$this->lang = array( 'Accept-Language: ' . $lang,
 			'Accept-Charset: utf-8,ISO-8859-1;q=0.7,*;q=0.7',
 			'Keep-Alive: 300',
 			'Connection: keep-alive',
@@ -43,7 +43,7 @@ class clickThread extends PHP_Fork {
 		$this->log->info(_('open the file.') . $name);
 		curl_setopt($ch, CURLOPT_FILE, $fp);
 		curl_setopt($ch, CURLOPT_HEADER, 0);
-		#curl_setopt($ch, CURLOPT_PROXY, $this->proxy);
+		curl_setopt($ch, CURLOPT_PROXY, $this->proxy);
 		curl_setopt($ch, CURLOPT_REFERER, $this->refer);
 		curl_setopt($ch, CURLOPT_USERAGENT, $this->user);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $this->lang);
@@ -57,6 +57,7 @@ class clickThread extends PHP_Fork {
 	}
 	function __destruct() {
        $this->log->info(_('Destroying ') . $this->name . "\n");
+       exit();
    }
 }
 ?>

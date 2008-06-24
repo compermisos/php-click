@@ -12,7 +12,7 @@
         <layout class="LoggerLayoutSimple" />
     </appender>
     <root>
-        <level value="all" />
+        <level value="warn" />
         <appender_ref ref="console" />
     </root>
 </log4php:configuration>

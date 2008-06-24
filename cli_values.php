@@ -3,16 +3,18 @@ $args = array(
 	"ver"	=> array("short"			=> "v",
 		"long"			=> "version",
 		"switch"			=> TRUE,
-		"info"			=> "Displays version information",
+		"info"			=> _('Displays version information'),
 	),
 	"help"=>	array("short"			=> "h",
 		"long"			=> "help",
-		"info"			=> "Shows this page",
+		"info"			=> _('Shows this page'),
 		"switch"			=> TRUE,
 	),
-	"foo"	=>	array('short'			=> "f",
-											"info"			=> "This is damn long senseless description just to test ShowHelpPage() text wrapper. This is is damn long senseless description just to test ShowHelpPage() text wrapper. This is damn long senseless description just to test ShowHelpPage() text wrapper."
-											),
+	"url"	=>	array("short"			=> "u",
+		"long"			=> "url",
+		"info"			=> _('The url to fetch'),
+		"switch"			=> FALSE,
+	)
 );			
 
 
@@ -35,6 +37,7 @@ if( $argc == 1 ){
 	printf(_("Type %s -help for details\n"), $argv[0]);
 	$log_main->warn(_('No param send.'));
 	$log_main->info(_('Printed help mensage.'));
+	exit();
 }
 if(!$result){
 	$log_main->warn(_('error.'));	
@@ -42,5 +45,5 @@ if(!$result){
 	$log_main->debug($cCLI->ShowErrors());
 	exit();
 }
-	
+$url = $cCLI->GetOptionArg('url')	;
 ?>
