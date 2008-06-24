@@ -9,7 +9,10 @@ $args = array(
 		"long"			=> "help",
 		"info"			=> "Shows this page",
 		"switch"			=> TRUE,
-	)
+	),
+	"foo"	=>	array('short'			=> "f",
+											"info"			=> "This is damn long senseless description just to test ShowHelpPage() text wrapper. This is is damn long senseless description just to test ShowHelpPage() text wrapper. This is damn long senseless description just to test ShowHelpPage() text wrapper."
+											),
 );			
 
 
@@ -33,21 +36,7 @@ if( $argc == 1 ){
 	$log_main->warn(_('No param send.'));
 	$log_main->info(_('Printed help mensage.'));
 }
-if( $result ){
-		if( $cCLI->IsOptionSet("src") )
-			{
-			printf(_("%d source(s) specifed:\n"), $cCLI->GetOptionArgCount('src'));
-
-			// since 'src' is 'multi' argument, GetOptionArg() returns an array
-			// to trawerse. So we go so...
-			$src = $cCLI->GetOptionArg("src");
-			foreach( $src AS $key )
-				printf("  Source: '%s'\n", $key );
-			}
-
-		if( $cCLI->IsOptionSet('dest') )
-			printf("Destination: '%s'\n", $cCLI->GetOptionArg('dest') );
-}else{
+if(!$result){
 	$log_main->warn(_('error.'));	
 	$log_main->debug($cCLI->ShowHelpPage());
 	$log_main->debug($cCLI->ShowErrors());

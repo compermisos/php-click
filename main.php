@@ -8,7 +8,8 @@ $log_main =& LoggerManager::getLogger('Main');
 $log_main->info('All base componet ara loaded.');
 require_once(APP_CONFIGURATION . '/default.php');
 $log_main->info(_('Base config and default values loaded.'));
-#echo _('Welcome to PHP APPNAME.'),"\n",_('Your request: HTTP://'),$hola, '',"\n";
+echo _('Welcome to PHP APPNAME.'),"\n",_('Your request: HTTP://'),$hola, '',"\n";
 require_once(PROJECT_DIR . '/cli_values.php');
+require_once(PROJECT_DIR . '/app.php');
 LoggerManager::shutdown();
 ?>
