@@ -20,6 +20,6 @@ $locale = (isset($_GET['lang']))? $_GET['lang'] : DEFAULT_LOCALE;
 /* other data */
 
 $app = array(
-	vercion=>'0.0.1',
+	'vercion'=>'0.0.1',
 );
 ?>

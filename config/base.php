@@ -8,7 +8,7 @@ define(DEFAULT_LOCALE, 'en_US');
 define('LIB_DIR', PROJECT_DIR . '/lib');
 define('LOG4PHP_DIR', LIB_DIR . '/log4php');
 define('PHPCLI_DIR', LIB_DIR . '/php-cli');
-define('PHP-FORK_DIR', LIB_DIR . '/php_fork');
+define('PHPFORK_DIR', LIB_DIR . '/php_fork');
 define('GETTEXT_DIR', LIB_DIR . '/php-gettext');
 define('APP_CONFIGURATION', PROJECT_DIR . "/config");
 define('LOG4PHP_CONFIGURATION',APP_CONFIGURATION . "/log4php/LoggerAppenderConsole.xml");

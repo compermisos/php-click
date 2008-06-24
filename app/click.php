@@ -1,0 +1,62 @@
+<?php
+/**
+ *
+*/
+class clickThread extends PHP_Fork {
+	public function __construct($name,$url,$proxy,$refer = 'google.com/',$user = 'Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9) Gecko/2008061017 Firefox/3.0' ,$lang = 'en-us'){
+		$this->PHP_Fork($name);
+		$this->counter = 0;
+		$this->url = $url;
+		$this->proxy = $proxy;
+		$this->refer = $refer;
+		$this->user = $user;
+		$this->lang = array( 'Accept-Language: en-us,en;q=0.5',
+			'Accept-Charset: utf-8,ISO-8859-1;q=0.7,*;q=0.7',
+			'Keep-Alive: 300',
+			'Connection: keep-alive',
+			'accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8 ');
+		$this->log =& LoggerManager::getLogger('Click');
+	}
+	/*public function run($url,$proxy,$refer = 'google.com/'){
+		$log_download =& LoggerManager::getLogger('Click');
+		$ch = curl_init($url);
+		$name = $this->getName();
+		$log_download->info(_('start the conector.'));
+		$fp = fopen('downloads/' . $name . "_ip.html", "w");
+		$log_download->info(_('open the file.') . $name);
+		curl_setopt($ch, CURLOPT_FILE, $fp);
+		curl_setopt($ch, CURLOPT_HEADER, 0);
+		curl_setopt($ch, CURLOPT_PROXY, $proxy);
+		$log_download->info(_('set the values.'));
+		curl_exec($ch);
+		$log_download->info(_('exec query.'));
+		curl_close($ch);
+		$log_download->info(_('close the conector.'));
+		fclose($fp);
+		$log_download->info(_('close the file.'));
+	}	*/
+	public function run(){
+		$ch = curl_init($this->url);
+		$name = $this->getName();
+		$this->log->info(_('start the conector.'));
+		$fp = fopen('downloads/' . $name . "_ip.html", "w");
+		$this->log->info(_('open the file.') . $name);
+		curl_setopt($ch, CURLOPT_FILE, $fp);
+		curl_setopt($ch, CURLOPT_HEADER, 0);
+		#curl_setopt($ch, CURLOPT_PROXY, $this->proxy);
+		curl_setopt($ch, CURLOPT_REFERER, $this->refer);
+		curl_setopt($ch, CURLOPT_USERAGENT, $this->user);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $this->lang);
+		$this->log->info(_('set the values.'));
+		curl_exec($ch);
+		$this->log->info(_('exec query.'));
+		curl_close($ch);
+		$this->log->info(_('close the conector.'));
+		fclose($fp);
+		$this->log->info(_('close the file.'));
+	}
+	function __destruct() {
+       $this->log->info(_('Destroying ') . $this->name . "\n");
+   }
+}
+?>
