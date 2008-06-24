@@ -1,0 +1,43 @@
+
+ Class CLI - (C)ommand (L)ine (I)nterface
+ --------------------------------------------------
+ Written by Marcin Orlowski <carlos@wfmh.org.pl>
+ Home page: http://wfmh.org.pl/~carlos/
+ http://www.phpclasses.org/browse.html/package/954.html
+ 
+ 
+ Development history:
+ ------------------------
+
+ 2003.05.25 - v1.4 - in addition to 'multi' option, class now
+                     automatically filters out duplicated values
+                     given for the same option
+                   - ShowHelpPage() features now smart text
+                     formatter which makes long description nicely
+                     layouted and correctly indented
+
+ 2003.05.24 - v1.3 - added support for multiplicated arguments
+                     GetOptionArg() would return an array.
+                     See cli_demo for more information.
+                   - added GetOptionArgCount() function which
+                     returns number of values assigned to 
+                     argument (makes sense for 'multi' arguments
+                     mostly).
+
+ 2003.01.18 - v1.2 - fixed the way internal parser works. Now
+                     it process all the argumens and cummulates
+                     errors (if any). This would let to handle
+                     i.e. 'help' switches unconditionally (see
+                     the cli_demo for new demo code with lot of
+                     comments
+                   - added ShowErrors() call that prints all
+                     cummulated errors (if any)
+
+ 2003.01.18 - v1.1 - fixed bug disallowing arguments to
+                     have dashes (i.e. 'long'=>'some-help')
+
+ 2003.01.18 - v1.0 - initial release.
+
+
+-- 
+$Id: CHANGES,v 1.3 2003/05/25 21:31:21 carl-os Exp $

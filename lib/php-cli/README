@@ -1,0 +1,160 @@
+
+CLI? What is it?
+-------------------------------------
+
+This is small PHP class that simplify creation of command line
+PHP applications. It takes care of shell argument parsing
+
+Requirements
+-------------------------------------
+
+Obligatory:
+
+ - PHP interpreter <http://php.net>. This script is developed
+   with PHP 4.2.x but any 4.x would do (it will fail on 3.x
+   as it uses PHP 4.x specific functions here and there).
+   Core installation will do. No extra modules is required.
+
+
+Developer materials
+-------------------------------------
+
+ Args array
+ ---------------------
+
+ To make class work you need to define what argumens
+ and option your application expects, which of them
+ are required, which are optional etc. This is done
+ by specifing $args table with structure as follow:
+
+ $args = array( "option1" => array( ...params...,
+                                    ...params...
+                                  ),
+                "option2" => array( ...params...,
+                                    ..,params...
+                                  )
+                ...
+              );
+
+ "option" is your unique identifier you will later
+ be refering to this given argument by.
+
+ Params can be one of the following:
+
+ "short"    - short (I suggest 1 letter here) switch
+              for an option (i.e. "v")
+ "long"     - long switch for an option (i.e. "version")
+ "info"     - short description of an option. This text
+              is used to build help page when ShowHelpPage()
+              is called. Can be ommited but default is
+              "--- No description. Complain! ---" message
+ "required" - BOOL specifies if this option is required
+              (default is FALSE). Class automatically
+              checks for presence of required options
+              and give you back an error if any is
+              missing
+ "switch"   - BOOL. If set to TRUE, option does not
+              need any argument (i.e. -version). Default
+              value is FALSE (so we'll need argument per
+              option),
+ "param"    - specifies option argument. If option is found
+              it's argument value is placed here. You can
+              use this field to specify default values for
+              options that are not 'required'i.
+ "multi"    - specifies if given option can be used more
+              than once (i.e. to let use to give more than
+              source dirs for your backup tool etc). Multi
+              mutually excludes 'switch', but that obvious
+
+ NOTE: you can give both short and long parameters
+       per option, or ommit one of them. But at least
+       one need to be specified.
+
+
+ Class functions
+ ---------------------
+
+ constructor( $args );
+ ---------------------------
+
+    $cli = new CLI();
+
+ or, with use of constructor arg:
+
+    $cli = new CLI( $args );
+
+
+
+ Parse( $argc, $argv [, $args]);
+ ------------------------------------
+
+ Parses user input. 3rd argument ($args array)
+ can be ommited if you gave it to constructor.
+ Otherwise you need to pass it here. Returns
+ BOOL. When FALSE, an error occuredm and you 
+ shall abort your application and display
+ error message as stored in 'error_message'
+ variable (see demo)
+
+
+ IsOptionSet( $option );
+ ------------------------------------
+
+ Return TRUE if $option had been given by user.
+ FALSE otherwise. You don't need to check against
+ required options, as their presence is checked
+ by Parse()
+
+
+ GetOptionArg( $option );
+ ------------------------------------
+
+ Returns option argument. If option is argumentless
+ it will return "".
+
+
+ GetOptionArgCount( $option );
+ -----------------------------------
+
+ Returns number of values $option holds. Would return
+ 0 for switches, 1 for standard options or X for
+ multi argument with X values. Returns FALSE if no
+ $option exists
+
+
+ ShowErrors();
+ -----------------------------------
+ 
+ Prints out all cumulated errors Parse() had collected.
+ 
+
+ ShowHelpPage();
+ -----------------------------------
+
+ Outputs help page. Page contains usage information as
+ well as list and description of each option. See demo.
+
+
+Example
+-------------------------------------
+
+See self explanatory cli_demo.php for information about 
+how to use the class.
+
+
+Bugs? Suggestions?
+-------------------------------------
+
+Let me know of any found!
+
+
+Author
+-------------------------------------
+
+ Written by Marcin Orlowski <carlos@wfmh.org.pl>
+ http://www.phpclasses.org/browse.html/package/954.html
+
+
+--
+$Id: README,v 1.5 2003/05/24 09:13:02 carl-os Exp $
+
