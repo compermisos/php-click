@@ -133,7 +133,7 @@ function ShowErrors()
 		/* changed on 23 of june for desing, pausible, change name and create a wraper*/
 		$outpot = $cnt . 'errors found:' . "\n";
 		foreach( $this->errors AS $error )
-			$outpot .= ("  %s\n", $error);
+			$outpot .= $error . "\n";
 		}
 	else
 		{

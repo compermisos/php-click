@@ -21,7 +21,7 @@ class CLI
 
 	var	$errors;
 
-	var	$version_str = "CLI class 1.3 by Marcin Orlowski <carlos@wfmh.org.pl>";
+	var	$version_str = "CLI class 1.3.1 by Marcin Orlowski <carlos@wfmh.org.pl> changed by Compermisos";
 
 
 	// this array describes all the fields args array should define
