@@ -91,13 +91,13 @@
 		// of Parse() result
 		exit( 0 );
 		}
-	
+
 	if( $cCLI->IsOptionSet("ver") )
 		{
 		printf("Class version: %s\n", $cCLI->version_str);
 		exit(0);
 		}
-		
+
 
 	// ok, can we proceed or not?
 	if( $result )

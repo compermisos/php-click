@@ -91,7 +91,7 @@ Developer materials
  Parses user input. 3rd argument ($args array)
  can be ommited if you gave it to constructor.
  Otherwise you need to pass it here. Returns
- BOOL. When FALSE, an error occuredm and you 
+ BOOL. When FALSE, an error occuredm and you
  shall abort your application and display
  error message as stored in 'error_message'
  variable (see demo)
@@ -124,9 +124,9 @@ Developer materials
 
  ShowErrors();
  -----------------------------------
- 
+
  Prints out all cumulated errors Parse() had collected.
- 
+
 
  ShowHelpPage();
  -----------------------------------
@@ -138,7 +138,7 @@ Developer materials
 Example
 -------------------------------------
 
-See self explanatory cli_demo.php for information about 
+See self explanatory cli_demo.php for information about
 how to use the class.
 
 
