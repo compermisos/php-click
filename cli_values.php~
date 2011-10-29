@@ -13,13 +13,13 @@ $args = array(
 	"foo"	=>	array('short'			=> "f",
 											"info"			=> "This is damn long senseless description just to test ShowHelpPage() text wrapper. This is is damn long senseless description just to test ShowHelpPage() text wrapper. This is damn long senseless description just to test ShowHelpPage() text wrapper."
 											),
-);			
+);
 
 
 /* stop config values */
 
-$cCLI = new CLI( $args );	
-$log_main->info(_('Loaded to memory the cli lib.'));		
+$cCLI = new CLI( $args );
+$log_main->info(_('Loaded to memory the cli lib.'));
 $result = $cCLI->Parse( $argc, $argv );
 if( $cCLI->IsOptionSet("help") ){
 	$cCLI->ShowHelpPage();
@@ -37,10 +37,10 @@ if( $argc == 1 ){
 	$log_main->info(_('Printed help mensage.'));
 }
 if(!$result){
-	$log_main->warn(_('error.'));	
+	$log_main->warn(_('error.'));
 	$log_main->debug($cCLI->ShowHelpPage());
 	$log_main->debug($cCLI->ShowErrors());
 	exit();
 }
-	
+
 ?>

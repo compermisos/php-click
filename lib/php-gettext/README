@@ -3,7 +3,7 @@ PHP-gettext 1.0
 Copyright 2003, 2006 -- Danilo "angry with PHP[1]" Segan
 Licensed under GPLv2 (or any later version, see COPYING)
 
-[1] PHP is actually cyrillic, and translates roughly to 
+[1] PHP is actually cyrillic, and translates roughly to
     "works-doesn't-work" (UTF-8: Ради-Не-Ради)
 
 
@@ -50,12 +50,12 @@ Features
     file data, I used imaginary abstract class StreamReader to do all
     the input (check streams.php). For your convenience, I've already
     provided two classes for reading files: FileReader and
-    StringReader (CachedFileReader is a combination of the two: it 
-    loads entire file contents into a string, and then works on that). 
-    See example below for usage. You can for instance use StringReader 
-    when you read in data from a database, or you can create your own 
-    derivative of StreamReader for anything you like. 
-    
+    StringReader (CachedFileReader is a combination of the two: it
+    loads entire file contents into a string, and then works on that).
+    See example below for usage. You can for instance use StringReader
+    when you read in data from a database, or you can create your own
+    derivative of StreamReader for anything you like.
+
 
 Bugs
 
@@ -94,19 +94,19 @@ Usage
     Then, use that as a parameter to gettext_reader constructor:
       $wohoo = new gettext_reader($streamer);
 
-    If you want to disable pre-loading of entire message catalog in 
-    memory (if, for example, you have a multi-thousand message catalog 
-    which you'll use only occasionally), use "false" for second 
+    If you want to disable pre-loading of entire message catalog in
+    memory (if, for example, you have a multi-thousand message catalog
+    which you'll use only occasionally), use "false" for second
     parameter to gettext_reader constructor:
       $wohoo = new gettext_reader($streamer, false);
 
     From now on, you have all the benefits of gettext data at your
-    disposal, so may run: 
+    disposal, so may run:
       print $wohoo->translate("This is a test");
       print $wohoo->ngettext("%d bird", "%d birds", $birds);
 
     You might need to pass parameter "-k" to xgettext to make it
-    extract all the strings. In above example, try with 
+    extract all the strings. In above example, try with
       xgettext -ktranslate -kngettext:1,2 file.php
     what should create messages.po which contains two messages for
     translation.
@@ -118,8 +118,8 @@ Usage
 
 Usage with gettext.inc (standard gettext interfaces emulation)
 
-    Check example in examples/pig_dropin.php, basically you include 
-    gettext.inc and use all the standard gettext interfaces as 
+    Check example in examples/pig_dropin.php, basically you include
+    gettext.inc and use all the standard gettext interfaces as
     documented on:
 
        http://www.php.net/gettext
@@ -146,11 +146,11 @@ Boring TODO:
 
   o Learn PHP and fix bugs, slowness and other stuff resulting from
     my lack of knowledge (but *maybe*, it's not my knowledge that is
-    bad, but PHP itself ;-).  
+    bad, but PHP itself ;-).
 
     (This is mostly done thanks to Nico Kaiser.)
 
-  o Try to use hash tables in MO files: with pre-loading, would it 
+  o Try to use hash tables in MO files: with pre-loading, would it
     be useful at all?
 
 Never-asked-questions:
@@ -160,7 +160,7 @@ Never-asked-questions:
 
     Well, it's quite simple. I consider that the first released thing
     should be labeled "version 1" (first, right?). Zero is there to
-    indicate that there's zero improvement and/or change compared to 
+    indicate that there's zero improvement and/or change compared to
     "version 1".
 
     I plan to use version numbers 1.0.* for small bugfixes, and to
@@ -173,7 +173,7 @@ Never-asked-questions:
     Mozart's 40th Symphony (there is one like that, right?).
 
   o Can I...?
-    
+
     Yes, you can. This is free software (as in freedom, free speech),
     and you might do whatever you wish with it, provided you do not
     limit freedom of others (GPL).
