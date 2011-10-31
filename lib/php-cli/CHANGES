@@ -4,8 +4,8 @@
  Written by Marcin Orlowski <carlos@wfmh.org.pl>
  Home page: http://wfmh.org.pl/~carlos/
  http://www.phpclasses.org/browse.html/package/954.html
- 
- 
+
+
  Development history:
  ------------------------
 
@@ -20,7 +20,7 @@
                      GetOptionArg() would return an array.
                      See cli_demo for more information.
                    - added GetOptionArgCount() function which
-                     returns number of values assigned to 
+                     returns number of values assigned to
                      argument (makes sense for 'multi' arguments
                      mostly).
 
@@ -39,5 +39,5 @@
  2003.01.18 - v1.0 - initial release.
 
 
--- 
+--
 $Id: CHANGES,v 1.3 2003/05/25 21:31:21 carl-os Exp $

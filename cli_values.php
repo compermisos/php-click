@@ -15,13 +15,13 @@ $args = array(
 		"info"			=> _('The url to fetch'),
 		"switch"			=> FALSE,
 	)
-);			
+);
 
 
 /* stop config values */
 
-$cCLI = new CLI( $args );	
-$log_main->info(_('Loaded to memory the cli lib.'));		
+$cCLI = new CLI( $args );
+$log_main->info(_('Loaded to memory the cli lib.'));
 $result = $cCLI->Parse( $argc, $argv );
 if( $cCLI->IsOptionSet("help") ){
 	$cCLI->ShowHelpPage();
@@ -40,7 +40,7 @@ if( $argc == 1 ){
 	exit();
 }
 if(!$result){
-	$log_main->warn(_('error.'));	
+	$log_main->warn(_('error.'));
 	$log_main->debug($cCLI->ShowHelpPage());
 	$log_main->debug($cCLI->ShowErrors());
 	exit();
