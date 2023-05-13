@@ -1,0 +1,12 @@
+# See https://docs.github.com/en/github/administering-a-repository/configuration-options-for-dependency-updates#package-ecosystem
+version: 2
+updates:
+  #- package-ecosystem: "gomod"
+    #directory: "/"
+    #schedule:
+      #interval: "daily"
+  #submodule import
+  - package-ecosystem: "gitsubmodule"
+    directory: "/"
+    schedule:
+      interval: "weekly"
